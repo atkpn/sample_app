@@ -2,13 +2,13 @@
   <% @lists.each do |list| %> <!-- eachメソッド -->
     <div class="list-box">
       <% if list.image.attached? %> <!-- if文 -->
-        <%= image_tag list.image, size: "200*200" %> <!-- image_tag1は、imgタグを生成するためのヘルパー。listの中のimageカラムからデータを取り出す。サイズは200*200 -->
+        <%= image_tag list.image, size: "200x200" %> <!-- image_tag1は、imgタグを生成するためのヘルパー。listの中のimageカラムからデータを取り出す。サイズは200*200 -->
       <% else %> <!-- 偽の時 -->
-        <%= image_tag 'no_image', size: "200*200" %>
+        <%= image_tag 'no_image', size: "200x200" %> <!-- これエックスだx -->
       <% end %>
       <div class="list-comment">
         <span class="list-body"><%= list.body %></span>
-        <span class="list-title"><%= list.title, list_path(list.id) %></span> <!-- listルートで設定されたコントローラとアクションへとばす。引数は、listモデルのidカラム -->
+        <span class="list-title"><%= link_to list.title, list_path(list.id) %></span> <!-- listルートで設定されたコントローラとアクションへとばす。引数は、listモデルのidカラム -->
       </div>
     </div>
   <% end %>
